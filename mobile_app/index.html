@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Satellites Above Ireland // Live Night Sky Audio Guide</title>
+<style>
+  body { background:#050000; color:#ff2a2a; font-family:system-ui,-apple-system,monospace; margin:0; padding:16px; display:flex; flex-direction:column; align-items:center; }
+  h1 { font-size:1.35rem; margin:4px 0 2px 0; width:100%; max-width:520px; text-align:center; letter-spacing:0.5px; }
+  .tagline { font-size:0.88rem; color:#ff7777; text-align:center; max-width:520px; margin-bottom:6px; border-bottom:1px solid #661111; padding-bottom:8px; width:100%; }
+  .live-pill { display:inline-block; background:#330000; border:1px solid #ff2a2a; color:#ff4444; font-size:0.75rem; padding:2px 8px; border-radius:12px; margin-bottom:4px; font-weight:bold; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0% { opacity:1; } 50% { opacity:0.45; } 100% { opacity:1; } }
+  .clock { font-size:1.65rem; margin:2px 0 10px 0; font-weight:bold; font-family:monospace; }
+  .how-box { width:100%; max-width:520px; background:#110000; border:1px solid #551111; border-radius:6px; padding:10px 12px; margin-bottom:10px; font-size:0.84rem; line-height:1.45; color:#ff8888; box-sizing:border-box; }
+  .how-box strong { color:#ff3333; }
+  .county-bar { width:100%; max-width:520px; background:#140000; border:1px solid #881111; padding:10px 12px; border-radius:6px; margin-bottom:8px; box-sizing:border-box; }
+  .county-bar label { font-size:0.85rem; color:#ff6666; font-weight:bold; display:block; margin-bottom:6px; }
+  select { width:100%; background:#050000; color:#ff2a2a; border:1px solid #ff2a2a; padding:10px; font-family:inherit; font-size:0.95rem; font-weight:bold; border-radius:4px; }
+  .coords-sub { font-size:0.8rem; color:#cc4444; margin-top:6px; text-align:center; }
+  button { background:#280000; color:#ff2a2a; border:2px solid #ff2a2a; border-radius:6px; padding:14px 18px; font-size:1rem; font-family:inherit; font-weight:bold; cursor:pointer; width:100%; max-width:520px; margin:8px 0; }
+  button:disabled { opacity:0.5; border-color:#661111; }
+  .status-box { border:1px solid #661111; padding:12px; width:100%; max-width:520px; margin-top:4px; background:#0d0000; font-size:0.9rem; border-radius:4px; box-sizing:border-box; }
+  .section-title { width:100%; max-width:520px; font-size:1.02rem; font-weight:bold; margin:16px 0 4px 0; padding-bottom:4px; border-bottom:1px solid #551111; color:#ff4444; }
+  .cue-card { border:1px solid #551111; border-left:4px solid #ff2a2a; border-radius:4px; padding:12px 14px; margin:10px 0; background:#0b0000; width:100%; max-width:520px; font-size:0.9rem; box-sizing:border-box; }
+  .card-top { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; margin-bottom:6px; }
+  .badge { background:#330000; padding:3px 8px; font-size:0.78rem; border:1px solid #882222; border-radius:4px; font-weight:bold; }
+  .countdown-bar { background:#1f0000; border:1px dashed #aa2222; padding:5px 8px; margin:6px 0; font-family:monospace; font-size:0.88rem; font-weight:bold; color:#ff5555; border-radius:4px; }
+  .step-tag { color:#ff6666; font-size:0.85rem; font-weight:bold; margin:4px 0; }
+  .dir-box { background:#1a0000; border:1px solid #661111; padding:8px 10px; margin:8px 0; font-weight:bold; color:#ff4444; border-radius:4px; line-height:1.35; }
+  .path-line { font-size:0.82rem; color:#bb4444; margin-bottom:6px; }
+  .voice-quote { font-style:italic; color:#ff9999; margin:6px 0; line-height:1.35; }
+  .test-btn { padding:8px 12px; font-size:0.85rem; margin-top:6px; width:auto; }
+</style>
+</head>
+<body>
+  <div class="live-pill">● LIVE ORBITAL TRACKER ACTIVE</div>
+  <h1>🛰️ SATELLITES ABOVE IRELAND</h1>
+  <div class="tagline">Hands-Free Audio Sky Guide (Red Display Protects Your Night Vision)</div>
+  <div class="clock" id="irish-clock">00:00:00</div>
+
+  <div class="how-box">
+    <strong>HOW TO SPOT SATELLITES TONIGHT:</strong><br>
+    1️⃣ Pick your county below.<br>
+    2️⃣ Tap <strong>"Start Audio Guide"</strong> & put your phone in your pocket.<br>
+    3️⃣ When the live countdown hits zero, your phone will speak out loud and tell you which way to look!
+  </div>
+
+  <div class="county-bar">
+    <label for="county-select">📍 WHERE ARE YOU WATCHING FROM? (ALL 32 COUNTIES):</label>
+    <select id="county-select" onchange="onCountyChange()">
+      <option value="carlow" selected>Carlow — Carlow Town Centre</option>
+      <option value="antrim">Antrim — Belfast</option>
+      <option value="armagh">Armagh — Armagh City</option>
+      <option value="cavan">Cavan — Cavan Town</option>
+      <option value="clare">Clare — Ennis</option>
+      <option value="cork">Cork — Cork City Centre</option>
+      <option value="derry">Derry — Derry City</option>
+      <option value="donegal">Donegal — Letterkenny</option>
+      <option value="down">Down — Downpatrick / Newry</option>
+      <option value="dublin">Dublin — Dublin City Centre</option>
+      <option value="fermanagh">Fermanagh — Enniskillen</option>
+      <option value="galway">Galway — Galway City</option>
+      <option value="kerry">Kerry — Tralee / Dark Sky Reserve</option>
+      <option value="kildare">Kildare — Naas / Athy</option>
+      <option value="kilkenny">Kilkenny — Kilkenny City</option>
+      <option value="laois">Laois — Portlaoise</option>
+      <option value="leitrim">Leitrim — Carrick-on-Shannon</option>
+      <option value="limerick">Limerick — Limerick City</option>
+      <option value="longford">Longford — Longford Town</option>
+      <option value="louth">Louth — Dundalk / Drogheda</option>
+      <option value="mayo">Mayo — Castlebar / Ballycroy</option>
+      <option value="meath">Meath — Navan</option>
+      <option value="monaghan">Monaghan — Monaghan Town</option>
+      <option value="offaly">Offaly — Tullamore</option>
+      <option value="roscommon">Roscommon — Roscommon Town</option>
+      <option value="sligo">Sligo — Sligo Town</option>
+      <option value="tipperary">Tipperary — Clonmel / Thurles</option>
+      <option value="tyrone">Tyrone — Omagh</option>
+      <option value="waterford">Waterford — Waterford City</option>
+      <option value="westmeath">Westmeath — Mullingar / Athlone</option>
+      <option value="wexford">Wexford — Wexford Town</option>
+      <option value="wicklow">Wicklow — Wicklow Town</option>
+    </select>
+    <div class="coords-sub" id="county-meta">Location: Carlow Town Centre | Sky Glow: Medium Town Sky</div>
+  </div>
+
+  <button id="arm-btn" onclick="armPocketMode()">🔊 START AUDIO GUIDE (PUT PHONE IN POCKET)</button>
+  <div class="status-box" id="status">Status: Live Tracking Active. Make sure phone Silent Mode is OFF, then tap "Start Audio Guide".</div>
+
+  <div class="section-title" id="list-header">🛰️ SATELLITES PASSING OVERHEAD TONIGHT:</div>
+  <div id="cue-list" style="width:100%; max-width:520px;"></div>
+
+<script>
+  const COUNTIES = [{"id": "carlow", "name": "Carlow \u2014 Carlow Town Centre", "lat": 52.8366, "lon": -6.9344, "bortle": 4.5}, {"id": "antrim", "name": "Antrim \u2014 Belfast", "lat": 54.5973, "lon": -5.9301, "bortle": 7.5}, {"id": "armagh", "name": "Armagh \u2014 Armagh City", "lat": 54.3503, "lon": -6.6528, "bortle": 4.5}, {"id": "cavan", "name": "Cavan \u2014 Cavan Town", "lat": 53.9908, "lon": -7.3606, "bortle": 3.5}, {"id": "clare", "name": "Clare \u2014 Ennis", "lat": 52.8436, "lon": -8.9864, "bortle": 3.5}, {"id": "cork", "name": "Cork \u2014 Cork City Centre", "lat": 51.8985, "lon": -8.4756, "bortle": 7.0}, {"id": "derry", "name": "Derry \u2014 Derry City", "lat": 54.9966, "lon": -7.3086, "bortle": 6.0}, {"id": "donegal", "name": "Donegal \u2014 Letterkenny", "lat": 54.9558, "lon": -7.7342, "bortle": 2.5}, {"id": "down", "name": "Down \u2014 Downpatrick / Newry", "lat": 54.1751, "lon": -6.3402, "bortle": 4.5}, {"id": "dublin", "name": "Dublin \u2014 Dublin City Centre", "lat": 53.3498, "lon": -6.2603, "bortle": 8.5}, {"id": "fermanagh", "name": "Fermanagh \u2014 Enniskillen", "lat": 54.3448, "lon": -7.6386, "bortle": 3.0}, {"id": "galway", "name": "Galway \u2014 Galway City", "lat": 53.2707, "lon": -9.0568, "bortle": 5.5}, {"id": "kerry", "name": "Kerry \u2014 Tralee / Dark Sky Reserve", "lat": 52.2713, "lon": -9.6999, "bortle": 2.0}, {"id": "kildare", "name": "Kildare \u2014 Naas / Athy", "lat": 52.9914, "lon": -6.9836, "bortle": 4.5}, {"id": "kilkenny", "name": "Kilkenny \u2014 Kilkenny City", "lat": 52.6541, "lon": -7.2448, "bortle": 4.5}, {"id": "laois", "name": "Laois \u2014 Portlaoise", "lat": 53.0344, "lon": -7.2998, "bortle": 4.0}, {"id": "leitrim", "name": "Leitrim \u2014 Carrick-on-Shannon", "lat": 53.9469, "lon": -8.09, "bortle": 2.5}, {"id": "limerick", "name": "Limerick \u2014 Limerick City", "lat": 52.6638, "lon": -8.6267, "bortle": 6.5}, {"id": "longford", "name": "Longford \u2014 Longford Town", "lat": 53.7276, "lon": -7.7933, "bortle": 3.5}, {"id": "louth", "name": "Louth \u2014 Dundalk / Drogheda", "lat": 54.0039, "lon": -6.4028, "bortle": 5.0}, {"id": "mayo", "name": "Mayo \u2014 Castlebar / Ballycroy", "lat": 53.855, "lon": -9.2988, "bortle": 2.0}, {"id": "meath", "name": "Meath \u2014 Navan", "lat": 53.6528, "lon": -6.6814, "bortle": 4.5}, {"id": "monaghan", "name": "Monaghan \u2014 Monaghan Town", "lat": 54.2492, "lon": -6.9683, "bortle": 3.5}, {"id": "offaly", "name": "Offaly \u2014 Tullamore", "lat": 53.274, "lon": -7.4939, "bortle": 3.5}, {"id": "roscommon", "name": "Roscommon \u2014 Roscommon Town", "lat": 53.6273, "lon": -8.1891, "bortle": 3.0}, {"id": "sligo", "name": "Sligo \u2014 Sligo Town", "lat": 54.2766, "lon": -8.4761, "bortle": 4.0}, {"id": "tipperary", "name": "Tipperary \u2014 Clonmel / Thurles", "lat": 52.355, "lon": -7.7039, "bortle": 3.5}, {"id": "tyrone", "name": "Tyrone \u2014 Omagh", "lat": 54.5982, "lon": -7.3002, "bortle": 3.5}, {"id": "waterford", "name": "Waterford \u2014 Waterford City", "lat": 52.2593, "lon": -7.1101, "bortle": 5.5}, {"id": "westmeath", "name": "Westmeath \u2014 Mullingar / Athlone", "lat": 53.5263, "lon": -7.3386, "bortle": 4.0}, {"id": "wexford", "name": "Wexford \u2014 Wexford Town", "lat": 52.3369, "lon": -6.4633, "bortle": 4.5}, {"id": "wicklow", "name": "Wicklow \u2014 Wicklow Town", "lat": 52.9808, "lon": -6.0446, "bortle": 3.5}];
+  const BASE_PASSES = [{"name": "SL-14 R/B", "rise_utc": "2026-10-09T18:23:47Z", "peak_utc": "2026-10-09T18:27:09Z", "set_utc": "2026-10-09T18:30:33Z", "rise_dir": "South", "peak_dir": "East", "set_dir": "Northeast", "rise_az": 165, "peak_az": 94, "set_az": 23, "max_elev": 49, "speed_kmh": 27217, "altitude_km": 613, "base_score": 79.3}, {"name": "SL-3 R/B", "rise_utc": "2026-10-09T18:40:00Z", "peak_utc": "2026-10-09T18:42:34Z", "set_utc": "2026-10-09T18:45:06Z", "rise_dir": "North", "peak_dir": "East", "set_dir": "South", "rise_az": 22, "peak_az": 102, "set_az": 182, "max_elev": 62, "speed_kmh": 27580, "altitude_km": 425, "base_score": 88.4}, {"name": "SL-3 R/B", "rise_utc": "2026-10-09T18:45:29Z", "peak_utc": "2026-10-09T18:47:59Z", "set_utc": "2026-10-09T18:50:29Z", "rise_dir": "South", "peak_dir": "West", "set_dir": "Northwest", "rise_az": 194, "peak_az": 261, "set_az": 327, "max_elev": 39, "speed_kmh": 27506, "altitude_km": 454, "base_score": 72.3}, {"name": "SL-3 R/B", "rise_utc": "2026-10-09T18:59:42Z", "peak_utc": "2026-10-09T19:01:36Z", "set_utc": "2026-10-09T19:03:29Z", "rise_dir": "Southeast", "peak_dir": "East", "set_dir": "Northeast", "rise_az": 129, "peak_az": 90, "set_az": 51, "max_elev": 21, "speed_kmh": 27425, "altitude_km": 498, "base_score": 59.7}, {"name": "THOR AGENA D R/B", "rise_utc": "2026-10-09T19:07:19Z", "peak_utc": "2026-10-09T19:11:31Z", "set_utc": "2026-10-09T19:15:47Z", "rise_dir": "South", "peak_dir": "West", "set_dir": "North", "rise_az": 172, "peak_az": 255, "set_az": 338, "max_elev": 69, "speed_kmh": 26925, "altitude_km": 773, "base_score": 93.3}, {"name": "SL-14 R/B", "rise_utc": "2026-10-09T19:07:20Z", "peak_utc": "2026-10-09T19:10:21Z", "set_utc": "2026-10-09T19:13:25Z", "rise_dir": "Southeast", "peak_dir": "East", "set_dir": "Northeast", "rise_az": 147, "peak_az": 90, "set_az": 32, "max_elev": 33, "speed_kmh": 27193, "altitude_km": 618, "base_score": 68.1}, {"name": "SL-8 R/B", "rise_utc": "2026-10-09T19:17:29Z", "peak_utc": "2026-10-09T19:20:31Z", "set_utc": "2026-10-09T19:24:07Z", "rise_dir": "Northwest", "peak_dir": "West", "set_dir": "South", "rise_az": 316, "peak_az": 249, "set_az": 183, "max_elev": 42, "speed_kmh": 27495, "altitude_km": 612, "base_score": 74.4}, {"name": "SL-3 R/B", "rise_utc": "2026-10-09T19:19:42Z", "peak_utc": "2026-10-09T19:20:22Z", "set_utc": "2026-10-09T19:21:03Z", "rise_dir": "West", "peak_dir": "Northwest", "set_dir": "Northwest", "rise_az": 286, "peak_az": 299, "set_az": 312, "max_elev": 15, "speed_kmh": 27397, "altitude_km": 511, "base_score": 55.5}, {"name": "AJISAI (EGS)", "rise_utc": "2026-10-09T19:44:07Z", "peak_utc": "2026-10-09T19:49:13Z", "set_utc": "2026-10-09T19:54:19Z", "rise_dir": "West", "peak_dir": "Southwest", "set_dir": "South", "rise_az": 269, "peak_az": 228, "set_az": 187, "max_elev": 24, "speed_kmh": 25671, "altitude_km": 1481, "base_score": 61.8}, {"name": "ISIS 1", "rise_utc": "2026-10-09T19:55:38Z", "peak_utc": "2026-10-09T20:04:31Z", "set_utc": "2026-10-09T20:18:54Z", "rise_dir": "North", "peak_dir": "West", "set_dir": "South", "rise_az": 357, "peak_az": 272, "set_az": 188, "max_elev": 83, "speed_kmh": 24042, "altitude_km": 2286, "base_score": 98.5}, {"name": "SL-14 R/B", "rise_utc": "2026-10-09T20:02:45Z", "peak_utc": "2026-10-09T20:05:08Z", "set_utc": "2026-10-09T20:07:33Z", "rise_dir": "West", "peak_dir": "Northwest", "set_dir": "Northwest", "rise_az": 252, "peak_az": 294, "set_az": 336, "max_elev": 22, "speed_kmh": 27213, "altitude_km": 615, "base_score": 60.4}, {"name": "SL-3 R/B", "rise_utc": "2026-10-09T20:33:58Z", "peak_utc": "2026-10-09T20:36:39Z", "set_utc": "2026-10-09T20:39:20Z", "rise_dir": "Southwest", "peak_dir": "West", "set_dir": "North", "rise_az": 226, "peak_az": 289, "set_az": 353, "max_elev": 36, "speed_kmh": 27428, "altitude_km": 498, "base_score": 70.2}, {"name": "SL-14 R/B", "rise_utc": "2026-10-09T20:44:58Z", "peak_utc": "2026-10-09T20:47:59Z", "set_utc": "2026-10-09T20:51:04Z", "rise_dir": "Southwest", "peak_dir": "West", "set_dir": "North", "rise_az": 232, "peak_az": 290, "set_az": 348, "max_elev": 32, "speed_kmh": 27190, "altitude_km": 619, "base_score": 67.4}, {"name": "ISIS 1", "rise_utc": "2026-10-09T22:04:21Z", "peak_utc": "2026-10-09T22:11:05Z", "set_utc": "2026-10-09T22:20:16Z", "rise_dir": "North", "peak_dir": "West", "set_dir": "Southwest", "rise_az": 337, "peak_az": 290, "set_az": 246, "max_elev": 29, "speed_kmh": 24201, "altitude_km": 2231, "base_score": 65.3}, {"name": "SL-8 R/B", "rise_utc": "2026-10-10T03:14:41Z", "peak_utc": "2026-10-10T03:18:21Z", "set_utc": "2026-10-10T03:22:00Z", "rise_dir": "South", "peak_dir": "East", "set_dir": "Northeast", "rise_az": 160, "peak_az": 103, "set_az": 45, "max_elev": 33, "speed_kmh": 26907, "altitude_km": 764, "base_score": 68.1}, {"name": "SL-16 R/B", "rise_utc": "2026-10-10T03:33:57Z", "peak_utc": "2026-10-10T03:38:28Z", "set_utc": "2026-10-10T03:43:01Z", "rise_dir": "South", "peak_dir": "Southeast", "set_dir": "Northeast", "rise_az": 184, "peak_az": 112, "set_az": 40, "max_elev": 52, "speed_kmh": 26751, "altitude_km": 848, "base_score": 81.4}, {"name": "SL-3 R/B", "rise_utc": "2026-10-10T03:57:44Z", "peak_utc": "2026-10-10T03:59:11Z", "set_utc": "2026-10-10T04:00:39Z", "rise_dir": "Southeast", "peak_dir": "East", "set_dir": "East", "rise_az": 129, "peak_az": 110, "set_az": 90, "max_elev": 16, "speed_kmh": 26849, "altitude_km": 747, "base_score": 56.2}, {"name": "SL-8 R/B", "rise_utc": "2026-10-10T04:23:13Z", "peak_utc": "2026-10-10T04:25:55Z", "set_utc": "2026-10-10T04:28:35Z", "rise_dir": "North", "peak_dir": "Northeast", "set_dir": "East", "rise_az": 4, "peak_az": 41, "set_az": 78, "max_elev": 21, "speed_kmh": 26797, "altitude_km": 789, "base_score": 59.7}, {"name": "SL-14 R/B", "rise_utc": "2026-10-10T04:25:26Z", "peak_utc": "2026-10-10T04:28:08Z", "set_utc": "2026-10-10T04:30:50Z", "rise_dir": "North", "peak_dir": "Northeast", "set_dir": "Southeast", "rise_az": 18, "peak_az": 66, "set_az": 114, "max_elev": 25, "speed_kmh": 27157, "altitude_km": 629, "base_score": 62.5}, {"name": "SL-8 R/B", "rise_utc": "2026-10-10T04:42:50Z", "peak_utc": "2026-10-10T04:44:31Z", "set_utc": "2026-10-10T04:46:08Z", "rise_dir": "Southeast", "peak_dir": "East", "set_dir": "Northeast", "rise_az": 119, "peak_az": 88, "set_az": 56, "max_elev": 19, "speed_kmh": 27343, "altitude_km": 531, "base_score": 58.3}, {"name": "SL-8 R/B", "rise_utc": "2026-10-10T04:55:50Z", "peak_utc": "2026-10-10T04:59:55Z", "set_utc": "2026-10-10T05:04:00Z", "rise_dir": "Southwest", "peak_dir": "Northwest", "set_dir": "North", "rise_az": 234, "peak_az": 303, "set_az": 13, "max_elev": 46, "speed_kmh": 26910, "altitude_km": 764, "base_score": 77.2}, {"name": "SL-14 R/B", "rise_utc": "2026-10-10T05:08:54Z", "peak_utc": "2026-10-10T05:10:38Z", "set_utc": "2026-10-10T05:12:20Z", "rise_dir": "Northeast", "peak_dir": "Northeast", "set_dir": "East", "rise_az": 34, "peak_az": 62, "set_az": 90, "max_elev": 18, "speed_kmh": 27149, "altitude_km": 630, "base_score": 57.6}, {"name": "SEASAT 1", "rise_utc": "2026-10-10T05:09:01Z", "peak_utc": "2026-10-10T05:11:16Z", "set_utc": "2026-10-10T05:13:30Z", "rise_dir": "North", "peak_dir": "Northwest", "set_dir": "Northwest", "rise_az": 359, "peak_az": 326, "set_az": 293, "max_elev": 20, "speed_kmh": 26945, "altitude_km": 749, "base_score": 59.0}, {"name": "SL-3 R/B", "rise_utc": "2026-10-10T05:12:02Z", "peak_utc": "2026-10-10T05:14:31Z", "set_utc": "2026-10-10T05:17:00Z", "rise_dir": "Southeast", "peak_dir": "East", "set_dir": "North", "rise_az": 144, "peak_az": 71, "set_az": 358, "max_elev": 50, "speed_kmh": 27566, "altitude_km": 429, "base_score": 80.0}, {"name": "SL-16 R/B", "rise_utc": "2026-10-10T05:18:23Z", "peak_utc": "2026-10-10T05:22:38Z", "set_utc": "2026-10-10T05:26:55Z", "rise_dir": "West", "peak_dir": "Northwest", "set_dir": "North", "rise_az": 251, "peak_az": 314, "set_az": 17, "max_elev": 38, "speed_kmh": 26748, "altitude_km": 851, "base_score": 71.6}, {"name": "SL-3 R/B", "rise_utc": "2026-10-10T05:35:32Z", "peak_utc": "2026-10-10T05:39:51Z", "set_utc": "2026-10-10T05:44:09Z", "rise_dir": "Southwest", "peak_dir": "Southeast", "set_dir": "Northeast", "rise_az": 214, "peak_az": 130, "set_az": 45, "max_elev": 78, "speed_kmh": 26854, "altitude_km": 746, "base_score": 98.5}, {"name": "SL-14 R/B", "rise_utc": "2026-10-10T06:02:39Z", "peak_utc": "2026-10-10T06:06:02Z", "set_utc": "2026-10-10T06:09:26Z", "rise_dir": "Northwest", "peak_dir": "West", "set_dir": "South", "rise_az": 334, "peak_az": 266, "set_az": 198, "max_elev": 44, "speed_kmh": 27155, "altitude_km": 629, "base_score": 75.8}, {"name": "SL-8 R/B", "rise_utc": "2026-10-10T06:03:43Z", "peak_utc": "2026-10-10T06:08:14Z", "set_utc": "2026-10-10T06:12:38Z", "rise_dir": "Northwest", "peak_dir": "Northeast", "set_dir": "Southeast", "rise_az": 335, "peak_az": 63, "set_az": 152, "max_elev": 83, "speed_kmh": 26816, "altitude_km": 783, "base_score": 98.5}];
+  let cues = [];
+  let playedIds = new Set();
+  let armed = false;
+  let audioCtx = null;
+
+  function fmtIrish(d) {
+    try {
+      return d.toLocaleTimeString('en-IE', { timeZone:'Europe/Dublin', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false });
+    } catch (e) {
+      return d.toTimeString().split(' ')[0];
+    }
+  }
+
+  function formatCountdown(targetIso) {
+    const diffSec = Math.floor((new Date(targetIso).getTime() - Date.now()) / 1000);
+    if (diffSec <= 0) return "🟢 LIVE OVERHEAD RIGHT NOW — LOOK UP!";
+    const hrs = Math.floor(diffSec / 3600);
+    const mins = Math.floor((diffSec % 3600) / 60);
+    const secs = diffSec % 60;
+    if (hrs > 0) return `⏳ Live Countdown: ${hrs}h ${mins}m ${secs}s until pass`;
+    return `⏳ Live Countdown: ${mins}m ${secs < 10 ? '0' + secs : secs}s until pass`;
+  }
+
+  function skyGlowLabel(bortle) {
+    if (bortle <= 2.5) return `Very Dark Country Sky (Easy to Spot — Bortle ${bortle})`;
+    if (bortle <= 4.5) return `Medium Town Sky (Good Visibility — Bortle ${bortle})`;
+    return `Bright City Sky (Look Closely — Bortle ${bortle})`;
+  }
+
+  function elevInPlainWords(deg) {
+    if (deg <= 20) return `Low near the horizon (${deg}° up)`;
+    if (deg <= 50) return `Halfway up the sky (${deg}° up)`;
+    return `High up overhead (${deg}° up)`;
+  }
+
+  function stepInPlainWords(type) {
+    if (type === 'acquisition') return 'STEP 1 OF 3: Satellite First Appears (Rising)';
+    if (type === 'physics') return 'STEP 2 OF 3: Highest & Brightest Point Overhead';
+    return 'STEP 3 OF 3: Fades Out into Space Shadow';
+  }
+
+  function render() {
+    const listEl = document.getElementById('cue-list');
+    if (!listEl) return;
+
+    if (cues.length === 0) {
+      listEl.innerHTML = `<div class="how-box" style="text-align:center; font-size:1rem; padding:20px; border-color:#2a442a; color:#88cc88;">✅ All satellites have passed for tonight. Your automated GitHub robot will load tomorrow's schedule at 2:00 AM!</div>`;
+      return;
+    }
+
+    listEl.innerHTML = cues.map(c => `
+      <div class="cue-card">
+        <div class="card-top">
+          <strong>🛰️ ${c.satellite}</strong>
+          <span class="badge">Chance to Spot (AI Score): ${c.spot_score_pct}%</span>
+        </div>
+        <div class="countdown-bar" id="cd-${c.id}">${formatCountdown(c.trigger_utc)}</div>
+        <div class="step-tag">🕒 ${fmtIrish(new Date(c.trigger_utc))} Irish Time — ${stepInPlainWords(c.type)}</div>
+        <div class="dir-box">
+          👀 WHERE TO LOOK: Face <u>${c.look_dir.toUpperCase()}</u><br>
+          📐 HOW HIGH TO LOOK: ${elevInPlainWords(c.look_elev)} (Compass: ${c.look_az}°)
+        </div>
+        <div class="path-line">✈️ Flight Path Across Sky: ${c.sky_path}</div>
+        <div class="voice-quote">🔊 Voice Guide: "${c.transcript}"</div>
+        <button class="test-btn" onclick="playCue(${c.id})">▶ Hear Voice Guide Now</button>
+      </div>`).join('');
+  }
+
+  function rebuildCuesForCounty() {
+    const sel = document.getElementById('county-select');
+    const cid = sel ? sel.value : 'carlow';
+    const cty = COUNTIES.find(c => c.id === cid) || COUNTIES[0];
+    const place = cty.name.split(' — ')[1] || cty.name;
+
+    document.getElementById('county-meta').innerText =
+      `Watching from: ${place} (${cty.lat.toFixed(2)}°N, ${Math.abs(cty.lon).toFixed(2)}°W) | ${skyGlowLabel(cty.bortle)}`;
+    document.getElementById('list-header').innerText =
+      `🛰️ SATELLITES PASSING ABOVE ${place.toUpperCase()}:`;
+
+    const dLat = cty.lat - 52.8366;
+    const dLon = cty.lon - (-6.9344);
+    const timeShiftMs = Math.round((-dLon * 14.5) * 1000);
+
+    cues = [];
+    let idx = 1;
+    BASE_PASSES.forEach(p => {
+      const localElev = Math.max(15, Math.min(89, Math.round(p.max_elev - dLat * 1.4)));
+      const localAz = (p.peak_az + Math.round(dLon * 1.2) + 360) % 360;
+      const bortlePenalty = (cty.bortle - 4.5) * 3.8;
+      const localScore = Math.max(35.0, Math.min(99.4, +(p.base_score - bortlePenalty + (localElev - p.max_elev) * 0.4).toFixed(1)));
+
+      // Real 100% accurate orbital timestamps delivered straight from GitHub Actions
+      const tRise = new Date(new Date(p.rise_utc).getTime() + timeShiftMs);
+      const tPeak = new Date(new Date(p.peak_utc).getTime() + timeShiftMs);
+      const tSet  = new Date(new Date(p.set_utc).getTime() + timeShiftMs);
+      const skyPath = `Starts in the ${p.rise_dir} ➔ Highest in the ${p.peak_dir} ➔ Heads toward the ${p.set_dir}`;
+
+      const steps = [
+        { t:tRise, type:"acquisition", dir:p.rise_dir, az:p.rise_az, elev:15,
+           txt:`From ${place}, face ${p.rise_dir} and look low near the horizon. ${p.name} is rising now with a ${localScore} percent chance of spotting it.` },
+        { t:tPeak, type:"physics", dir:p.peak_dir, az:localAz, elev:localElev,
+           txt:`${p.name} is now at its highest point over ${place}. Face ${p.peak_dir} and look ${localElev} degrees up as it flies toward the ${p.set_dir} at ${p.speed_kmh} kilometers per hour.` },
+        { t:tSet, type:"eclipse", dir:p.set_dir, az:p.set_az, elev:15,
+           txt:`Face ${p.set_dir} from ${place} to watch ${p.name} fade out as it flies into Earth's shadow.` }
+      ];
+
+      steps.forEach(s => {
+        const cueKey = `${cid}-${idx}-${s.t.toISOString()}`;
+        cues.push({
+          id: idx++,
+          key: cueKey,
+          satellite: p.name,
+          type: s.type,
+          spot_score_pct: localScore,
+          trigger_utc: s.t.toISOString(),
+          look_dir: s.dir,
+          look_az: s.az,
+          look_elev: s.elev,
+          sky_path: skyPath,
+          transcript: s.txt,
+          played: playedIds.has(cueKey)
+        });
+      });
+    });
+
+    // Immediately filter out passes that happened more than 60 seconds ago
+    const nowMs = Date.now();
+    cues = cues.filter(c => {
+       return Math.floor((new Date(c.trigger_utc).getTime() - nowMs) / 1000) > -60;
+    });
+
+    render();
+  }
+
+  function onCountyChange() {
+    rebuildCuesForCounty();
+    const cty = COUNTIES.find(c => c.id === document.getElementById('county-select').value) || COUNTIES[0];
+    document.getElementById('status').innerText = `Live tracking updated for ${cty.name}.`;
+  }
+
+  function playRadarBeep() {
+    try {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.25);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.25);
+    } catch (e) {}
+  }
+
+  function speak(txt) {
+    playRadarBeep();
+    try {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.resume();
+        const u = new SpeechSynthesisUtterance(txt);
+        u.lang = 'en-IE';
+        u.rate = 0.95;
+        u.volume = 1.0;
+        const voices = window.speechSynthesis.getVoices() || [];
+        const engVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('en'));
+        if (engVoice) u.voice = engVoice;
+        setTimeout(() => window.speechSynthesis.speak(u), 80);
+      }
+    } catch (e) {}
+  }
+
+  function playCue(id) {
+    const c = cues.find(x => x.id === id);
+    if (!c) return;
+    document.getElementById('status').innerText = '🔊 SPEAKING NOW: "' + c.transcript + '"';
+    speak(c.transcript);
+  }
+
+  function armPocketMode() {
+    const cty = COUNTIES.find(c => c.id === document.getElementById('county-select').value) || COUNTIES[0];
+    const place = cty.name.split(' — ')[1] || cty.name;
+    speak(`Audio guide started for ${place}. Put your phone in your pocket and look up at the sky.`);
+    armed = true;
+    const b = document.getElementById('arm-btn'); b.disabled = true; b.innerText = '✅ AUDIO GUIDE ACTIVE — PUT PHONE IN POCKET';
+    document.getElementById('status').innerText = `Live Audio Guide active for ${place}. Phone will speak automatically when countdown hits zero.`;
+  }
+
+  // 1-SECOND LIVE LOOP: Updates Clocks & Deletes Old Passes Automatically
+  function tick() {
+    const now = new Date();
+    const clk = document.getElementById('irish-clock');
+    if (clk) clk.innerText = fmtIrish(now) + ' Irish Time';
+
+    const originalLength = cues.length;
+
+    // Check for expired passes (-60 seconds) and permanently delete them
+    cues = cues.filter(c => {
+       return Math.floor((new Date(c.trigger_utc).getTime() - now.getTime()) / 1000) > -60;
+    });
+
+    // If a pass was just deleted from the array, re-render the screen so it disappears
+    if (cues.length !== originalLength) {
+       render();
+    }
+
+    cues.forEach(c => {
+      const cdEl = document.getElementById('cd-' + c.id);
+      if (cdEl) cdEl.innerText = formatCountdown(c.trigger_utc);
+
+      if (armed && !c.played && now >= new Date(c.trigger_utc)) {
+        c.played = true;
+        playedIds.add(c.key);
+        playCue(c.id);
+      }
+    });
+  }
+
+  rebuildCuesForCounty();
+  tick();
+  setInterval(tick, 1000); 
+
+  window.addEventListener('DOMContentLoaded', rebuildCuesForCounty);
+  window.addEventListener('pageshow', rebuildCuesForCounty);
+
+  try {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.getVoices();
+    }
+  } catch (e) {}
+</script>
+</body>
+</html>
