@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Python Dependencies
         run: |
-          pip install skyfield numpy tabpfn
+          pip install skyfield numpy tabpfn ollama elevenlabs
           
       - name: Run Pass Hunter AI Pipeline
         run: |
