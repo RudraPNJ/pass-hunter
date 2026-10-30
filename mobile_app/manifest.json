@@ -3,205 +3,219 @@
   "cues": [
     {
       "id": 1,
-      "satellite": "ISIS 1",
-      "spot_score_pct": 98.5,
-      "transcript": "From Carlow Town Centre, look North low near the horizon for ISIS 1 with a 98.5 percent chance of spotting it.",
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 64.6,
+      "transcript": "From Carlow Town Centre, look Southeast low near the horizon for SL-3 R/B with a 64.6 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 2,
-      "satellite": "THOR AGENA D R/B",
-      "spot_score_pct": 70.2,
-      "transcript": "From Carlow Town Centre, look Southeast low near the horizon for THOR AGENA D R/B with a 70.2 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 3,
       "satellite": "SL-3 R/B",
       "spot_score_pct": 61.8,
       "transcript": "From Carlow Town Centre, look Southeast low near the horizon for SL-3 R/B with a 61.8 percent chance of spotting it.",
       "audio_file": null
     },
     {
-      "id": 4,
+      "id": 3,
       "satellite": "SL-8 R/B",
-      "spot_score_pct": 77.9,
-      "transcript": "From Carlow Town Centre, look Southwest low near the horizon for SL-8 R/B with a 77.9 percent chance of spotting it.",
+      "spot_score_pct": 56.9,
+      "transcript": "From Carlow Town Centre, look Southeast low near the horizon for SL-8 R/B with a 56.9 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 4,
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 87.0,
+      "transcript": "From Carlow Town Centre, look South low near the horizon for SL-3 R/B with a 87.0 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 5,
       "satellite": "SL-3 R/B",
-      "spot_score_pct": 98.5,
-      "transcript": "From Carlow Town Centre, look South low near the horizon for SL-3 R/B with a 98.5 percent chance of spotting it.",
+      "spot_score_pct": 61.1,
+      "transcript": "From Carlow Town Centre, look Northeast low near the horizon for SL-3 R/B with a 61.1 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 6,
-      "satellite": "SL-3 R/B",
-      "spot_score_pct": 98.5,
-      "transcript": "From Carlow Town Centre, look South low near the horizon for SL-3 R/B with a 98.5 percent chance of spotting it.",
+      "satellite": "SL-8 R/B",
+      "spot_score_pct": 59.0,
+      "transcript": "From Carlow Town Centre, look West low near the horizon for SL-8 R/B with a 59.0 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 7,
-      "satellite": "SL-8 R/B",
-      "spot_score_pct": 63.9,
-      "transcript": "From Carlow Town Centre, look Southeast low near the horizon for SL-8 R/B with a 63.9 percent chance of spotting it.",
+      "satellite": "THOR AGENA D R/B",
+      "spot_score_pct": 98.2,
+      "transcript": "From Carlow Town Centre, look South low near the horizon for THOR AGENA D R/B with a 98.2 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 8,
-      "satellite": "SL-14 R/B",
-      "spot_score_pct": 56.2,
-      "transcript": "From Carlow Town Centre, look West low near the horizon for SL-14 R/B with a 56.2 percent chance of spotting it.",
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 60.4,
+      "transcript": "From Carlow Town Centre, look Southwest low near the horizon for SL-3 R/B with a 60.4 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 9,
+      "satellite": "ISIS 1",
+      "spot_score_pct": 86.3,
+      "transcript": "From Carlow Town Centre, look North low near the horizon for ISIS 1 with a 86.3 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 10,
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 72.3,
+      "transcript": "From Carlow Town Centre, look Southwest low near the horizon for SL-3 R/B with a 72.3 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 11,
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 63.2,
+      "transcript": "From Carlow Town Centre, look North low near the horizon for SL-3 R/B with a 63.2 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 12,
+      "satellite": "SL-8 R/B",
+      "spot_score_pct": 98.5,
+      "transcript": "From Carlow Town Centre, look Southwest low near the horizon for SL-8 R/B with a 98.5 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 13,
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 55.5,
+      "transcript": "From Carlow Town Centre, look West low near the horizon for SL-3 R/B with a 55.5 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 14,
+      "satellite": "ISIS 1",
+      "spot_score_pct": 61.8,
+      "transcript": "From Carlow Town Centre, look North low near the horizon for ISIS 1 with a 61.8 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 15,
+      "satellite": "SL-12 R/B(2)",
+      "spot_score_pct": 69.5,
+      "transcript": "From Carlow Town Centre, look North low near the horizon for SL-12 R/B(2) with a 69.5 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 16,
+      "satellite": "ISIS 1",
+      "spot_score_pct": 55.5,
+      "transcript": "From Carlow Town Centre, look Northeast low near the horizon for ISIS 1 with a 55.5 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 17,
+      "satellite": "SEASAT 1",
+      "spot_score_pct": 80.0,
+      "transcript": "From Carlow Town Centre, look Northeast low near the horizon for SEASAT 1 with a 80.0 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 18,
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 59.0,
+      "transcript": "From Carlow Town Centre, look Northwest low near the horizon for SL-3 R/B with a 59.0 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 19,
+      "satellite": "SL-8 R/B",
+      "spot_score_pct": 93.3,
+      "transcript": "From Carlow Town Centre, look North low near the horizon for SL-8 R/B with a 93.3 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 20,
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 59.0,
+      "transcript": "From Carlow Town Centre, look East low near the horizon for SL-3 R/B with a 59.0 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 21,
+      "satellite": "SL-12 R/B(2)",
+      "spot_score_pct": 82.8,
+      "transcript": "From Carlow Town Centre, look Northwest low near the horizon for SL-12 R/B(2) with a 82.8 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 22,
       "satellite": "SL-3 R/B",
       "spot_score_pct": 98.5,
       "transcript": "From Carlow Town Centre, look North low near the horizon for SL-3 R/B with a 98.5 percent chance of spotting it.",
       "audio_file": null
     },
     {
-      "id": 10,
-      "satellite": "SL-3 R/B",
-      "spot_score_pct": 71.6,
-      "transcript": "From Carlow Town Centre, look Southwest low near the horizon for SL-3 R/B with a 71.6 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 11,
-      "satellite": "THOR AGENA D R/B",
-      "spot_score_pct": 74.4,
-      "transcript": "From Carlow Town Centre, look South low near the horizon for THOR AGENA D R/B with a 74.4 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 12,
-      "satellite": "ISIS 1",
-      "spot_score_pct": 77.9,
-      "transcript": "From Carlow Town Centre, look North low near the horizon for ISIS 1 with a 77.9 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 13,
-      "satellite": "ISIS 1",
-      "spot_score_pct": 57.6,
-      "transcript": "From Carlow Town Centre, look North low near the horizon for ISIS 1 with a 57.6 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 14,
-      "satellite": "SL-8 R/B",
-      "spot_score_pct": 61.8,
-      "transcript": "From Carlow Town Centre, look North low near the horizon for SL-8 R/B with a 61.8 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 15,
-      "satellite": "SL-12 R/B(2)",
-      "spot_score_pct": 72.3,
-      "transcript": "From Carlow Town Centre, look North low near the horizon for SL-12 R/B(2) with a 72.3 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 16,
-      "satellite": "SL-3 R/B",
-      "spot_score_pct": 55.5,
-      "transcript": "From Carlow Town Centre, look Northeast low near the horizon for SL-3 R/B with a 55.5 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 17,
-      "satellite": "ISIS 1",
-      "spot_score_pct": 59.0,
-      "transcript": "From Carlow Town Centre, look East low near the horizon for ISIS 1 with a 59.0 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 18,
-      "satellite": "SL-8 R/B",
-      "spot_score_pct": 62.5,
-      "transcript": "From Carlow Town Centre, look Southeast low near the horizon for SL-8 R/B with a 62.5 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 19,
-      "satellite": "SEASAT 1",
-      "spot_score_pct": 96.8,
-      "transcript": "From Carlow Town Centre, look Northeast low near the horizon for SEASAT 1 with a 96.8 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 20,
-      "satellite": "AJISAI (EGS)",
-      "spot_score_pct": 55.5,
-      "transcript": "From Carlow Town Centre, look Southeast low near the horizon for AJISAI (EGS) with a 55.5 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 21,
-      "satellite": "SL-8 R/B",
-      "spot_score_pct": 98.5,
-      "transcript": "From Carlow Town Centre, look Northwest low near the horizon for SL-8 R/B with a 98.5 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
-      "id": 22,
-      "satellite": "SL-3 R/B",
-      "spot_score_pct": 61.8,
-      "transcript": "From Carlow Town Centre, look Northwest low near the horizon for SL-3 R/B with a 61.8 percent chance of spotting it.",
-      "audio_file": null
-    },
-    {
       "id": 23,
-      "satellite": "SL-3 R/B",
-      "spot_score_pct": 91.9,
-      "transcript": "From Carlow Town Centre, look Southeast low near the horizon for SL-3 R/B with a 91.9 percent chance of spotting it.",
+      "satellite": "ISIS 1",
+      "spot_score_pct": 80.7,
+      "transcript": "From Carlow Town Centre, look Southeast low near the horizon for ISIS 1 with a 80.7 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 24,
-      "satellite": "SL-3 R/B",
-      "spot_score_pct": 98.2,
-      "transcript": "From Carlow Town Centre, look North low near the horizon for SL-3 R/B with a 98.2 percent chance of spotting it.",
+      "satellite": "SEASAT 1",
+      "spot_score_pct": 70.9,
+      "transcript": "From Carlow Town Centre, look North low near the horizon for SEASAT 1 with a 70.9 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 25,
-      "satellite": "SL-12 R/B(2)",
-      "spot_score_pct": 77.2,
-      "transcript": "From Carlow Town Centre, look Northwest low near the horizon for SL-12 R/B(2) with a 77.2 percent chance of spotting it.",
+      "satellite": "SL-8 R/B",
+      "spot_score_pct": 83.5,
+      "transcript": "From Carlow Town Centre, look Southwest low near the horizon for SL-8 R/B with a 83.5 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 26,
-      "satellite": "SL-3 R/B",
-      "spot_score_pct": 77.2,
-      "transcript": "From Carlow Town Centre, look South low near the horizon for SL-3 R/B with a 77.2 percent chance of spotting it.",
+      "satellite": "AJISAI (EGS)",
+      "spot_score_pct": 67.4,
+      "transcript": "From Carlow Town Centre, look South low near the horizon for AJISAI (EGS) with a 67.4 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 27,
-      "satellite": "ISIS 1",
-      "spot_score_pct": 96.1,
-      "transcript": "From Carlow Town Centre, look South low near the horizon for ISIS 1 with a 96.1 percent chance of spotting it.",
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 70.2,
+      "transcript": "From Carlow Town Centre, look Northwest low near the horizon for SL-3 R/B with a 70.2 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 28,
-      "satellite": "SEASAT 1",
-      "spot_score_pct": 59.7,
-      "transcript": "From Carlow Town Centre, look North low near the horizon for SEASAT 1 with a 59.7 percent chance of spotting it.",
+      "satellite": "SL-8 R/B",
+      "spot_score_pct": 60.4,
+      "transcript": "From Carlow Town Centre, look Northwest low near the horizon for SL-8 R/B with a 60.4 percent chance of spotting it.",
       "audio_file": null
     },
     {
       "id": 29,
-      "satellite": "SL-8 R/B",
-      "spot_score_pct": 65.3,
-      "transcript": "From Carlow Town Centre, look West low near the horizon for SL-8 R/B with a 65.3 percent chance of spotting it.",
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 66.7,
+      "transcript": "From Carlow Town Centre, look Southwest low near the horizon for SL-3 R/B with a 66.7 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 30,
+      "satellite": "SL-3 R/B",
+      "spot_score_pct": 97.5,
+      "transcript": "From Carlow Town Centre, look South low near the horizon for SL-3 R/B with a 97.5 percent chance of spotting it.",
+      "audio_file": null
+    },
+    {
+      "id": 31,
+      "satellite": "SL-16 R/B",
+      "spot_score_pct": 63.2,
+      "transcript": "From Carlow Town Centre, look North low near the horizon for SL-16 R/B with a 63.2 percent chance of spotting it.",
       "audio_file": null
     }
   ]
